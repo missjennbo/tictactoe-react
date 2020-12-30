@@ -1,4 +1,4 @@
-import GameView from './components/GameView';
+import GameView from './components/Game/GameView';
 import {Provider} from 'react-redux';
 import {applyMiddleware, createStore} from 'redux';
 import reducer from './reducer/gameReducer';

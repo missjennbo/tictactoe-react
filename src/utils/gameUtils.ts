@@ -47,7 +47,6 @@ export const hasThreeDiagonal = (boardData: Board, marker: Marker): boolean => {
 
 export const isGameFinished = (boardData: Board, currentPlayer: Player): boolean => {
     const markerForCurrentPlayer = getMarkerFor(currentPlayer);
-    console.log('hasThreeInRow(boardData, markerForCurrentPlayer)', hasThreeInRow(boardData, markerForCurrentPlayer));
     return (
         hasThreeInRow(boardData, markerForCurrentPlayer) ||
         hasThreeInColumn(boardData, markerForCurrentPlayer) ||

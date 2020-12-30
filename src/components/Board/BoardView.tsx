@@ -1,7 +1,7 @@
 import {Component} from 'react';
-import {Board, CellInfo} from '../types/types';
+import {Board, CellInfo} from '../../types/types';
 import styles from './BoardView.module.scss';
-import CellView from './CellView';
+import CellView from '../Cell/CellView';
 interface Props {
     boardData: Board;
 }

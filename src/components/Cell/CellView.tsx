@@ -1,9 +1,9 @@
-import {CellInfo, Marker} from '../types/types';
-import {SET_MARKER} from '../actions/boardActions';
+import {CellInfo, Marker} from '../../types/types';
+import {SET_MARKER} from '../../actions/boardActions';
 import {useDispatch} from 'react-redux';
 import styles from './CellView.module.scss';
-import heartImage from '../images/heart.png';
-import crossImage from '../images/cross.png';
+import heartImage from '../../images/heart.png';
+import crossImage from '../../images/cross.png';
 
 interface Props {
     cellInfo: CellInfo;
