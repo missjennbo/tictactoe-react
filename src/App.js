@@ -1,7 +1,7 @@
 import GameView from './components/GameView';
 import {Provider} from 'react-redux';
 import {applyMiddleware, createStore} from 'redux';
-import reducer from '/reducer/gameReducer';
+import reducer from './reducer/gameReducer';
 import logger from 'redux-logger';
 
 const App = () => {

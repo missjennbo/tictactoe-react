@@ -51,9 +51,9 @@ const updateGame = (currentState: GameState, clickedCell: GameAction): GameState
 };
 
 const gameReducer = (state = INITIAL_STATE, action: GameAction) => {
+    const currentState = clone(state);
     switch (action.type) {
         case SET_MARKER:
-            const currentState = clone(state);
             return {
                 ...updateGame(currentState, action),
             };

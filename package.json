@@ -18,7 +18,7 @@
     },
     "scripts": {
         "start": "react-scripts start",
-        "check": "npm-run-all pretty-quick-staged tsc lint",
+        "check": "npm-run-all pretty-quick-staged tsc lint test",
         "pretty-quick-staged": "pretty-quick --staged",
         "lint": "node_modules/.bin/eslint --fix ./ --ext js,.jsx,.ts,.tsx",
         "tsc": "node_modules/.bin/tsc",
