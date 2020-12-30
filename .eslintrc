@@ -15,21 +15,8 @@
         "jest": true,
         "es6": true
     },
-    "extends": [
-        "plugin:@typescript-eslint/recommended",
-        "eslint:recommended",
-        "prettier/@typescript-eslint",
-        "plugin:prettier/recommended",
-        "react-app"
-    ],
-    "plugins": ["@typescript-eslint", "react", "prettier"],
+    "extends": ["eslint:recommended", "react-app"],
     "rules": {
-        "prettier/prettier": [
-            "error",
-            {
-                "singleQuote": true
-            }
-        ],
         "new-cap": 0,
         "strict": 0,
         "no-underscore-dangle": 0,
@@ -41,7 +28,6 @@
         "react/jsx-no-duplicate-props": 0,
         "react/jsx-pascal-case": 1,
         "no-unused-vars": "off",
-        "@typescript-eslint/explicit-function-return-type": "off",
         "prefer-const": "warn",
         "brace-style": "warn",
         "prefer-template": "warn",
@@ -49,24 +35,7 @@
         "@typescript-eslint/no-use-before-define": "off",
         "@typescript-eslint/no-inferrable-types": "warn",
         "@typescript-eslint/no-var-requires": 0,
-        "@typescript-eslint/camelcase": 0,
         "@typescript-eslint/no-empty-function": 0,
         "@typescript-eslint/no-floating-promises": 1
-    },
-    "overrides": [
-        {
-            "files": ["**/*.ts?(x)"],
-            "rules": {
-                "@typescript-eslint/explicit-function-return-type": [
-                    "error",
-                    {"allowExpressions": true, "allowDirectConstAssertionInArrowFunctions": true}
-                ],
-                "@typescript-eslint/no-var-requires": 0,
-                "@typescript-eslint/no-use-before-define": ["error", {"functions": false, "variables": false}],
-                "@typescript-eslint/camelcase": 1,
-                "@typescript-eslint/explicit-member-accessibility": "error",
-                "@typescript-eslint/no-empty-function": "warn"
-            }
-        }
-    ]
+    }
 }
