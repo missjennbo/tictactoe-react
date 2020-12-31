@@ -13,6 +13,8 @@ How to publish static app using **Github Pages**:
     * `"deploy": "gh-pages -d build"`
 * Run `npm run deploy` to deploy your application on Github Pages
 
+How to use simple [**Github Action on push**](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions)
+
 Introduce new tag using git CLI 
 * Create new local tag with `git tag -a v1.0 -m "some-message"`
 * Push new tag to remote repository with `git push --follow-tags`
