@@ -1,31 +1,25 @@
-name: learn-github-actions
+name: Build and deploy
 on: [push]
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - name: Install dependencies
-        run: npm install
-      - name: Run tests
-        run: npm run test
-
   build-and-deploy:
     runs-on: ubuntu-latest
-    needs: test
+    needs: check-code
     steps:
+      - name: Checkout
       - uses: actions/checkout@v2
+
+      - name: Setup node
       - uses: actions/setup-node@v1
-      - name: Install dependencies
-        run: npm install
-      - name: Set git user email
-        run: git config --global user.email "jennifer.lucifero@codecentric.de"
-      - name: set git user name
-        run: git config --global user.name "Jennifer Lucifero"
-      - name: set remote repo
-        run: git remote set-url origin git@github.com:missjennbo/tictactoe-react.git
-      - name: Build project
-        run: npm run build
+
+      - name: Install and build
+        run: |
+          npm install
+          npm run build
+
       - name: Deploy app
-        run: npm run deploy
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: build # The folder the action should deploy.
+          CLEAN: true # Automatically remove deleted files from the deploy branch
