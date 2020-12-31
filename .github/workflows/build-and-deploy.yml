@@ -6,10 +6,10 @@ jobs:
     needs: check-code
     steps:
       - name: Checkout
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
       - name: Setup node
-      - uses: actions/setup-node@v1
+        uses: actions/setup-node@v1
 
       - name: Install and build
         run: |
