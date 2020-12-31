@@ -17,9 +17,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - uses: fregante/setup-git-user@v1
       - name: Install dependencies
         run: npm install
+      - name: Set git user
+      - run: git config --global user.email "jennifer.lucifero@codecentric.de"
+      - run: git config --global user.name "Jennifer Lucifero"
       - name: Build project
         run: npm run build
       - name: Deploy app
