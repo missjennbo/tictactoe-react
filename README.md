@@ -21,3 +21,5 @@ Introduce new tag using git CLI
 
 Existing tags 
 * v1.0 - static app 
+* v2.0 - static deployed app 
+* v3.0 - test, build and deploy application on push using github actions
