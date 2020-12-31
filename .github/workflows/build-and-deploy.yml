@@ -23,6 +23,8 @@ jobs:
         run: git config --global user.email "jennifer.lucifero@codecentric.de"
       - name: set git user name
         run: git config --global user.name "Jennifer Lucifero"
+      - name: set remote repo
+        run: git remote set-url origin git@github.com:missjennbo/tictactoe-react.git
       - name: Build project
         run: npm run build
       - name: Deploy app
