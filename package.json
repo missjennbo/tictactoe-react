@@ -24,7 +24,7 @@
         "lint": "node_modules/.bin/eslint --fix ./ --ext js,.jsx,.ts,.tsx",
         "tsc": "node_modules/.bin/tsc",
         "build": "react-scripts build",
-        "test": "react-scripts test --watchAll",
+        "test": "react-scripts test --watchAll=false",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build"
     },
