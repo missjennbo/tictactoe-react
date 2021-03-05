@@ -4,7 +4,7 @@ import styles from './GameView.module.scss';
 import { RESET_GAME } from '../../actions/boardActions';
 import BoardView from '../Board/BoardView';
 import ScoreListView from '../ScoreList/ScoreListView';
-import Button from '../Button/Button';
+import Button from '../Basics/Button/Button';
 import { LOAD_USER } from '../../actions/userActions';
 
 const GameView = (): JSX.Element => {
