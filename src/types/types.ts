@@ -15,4 +15,10 @@ export enum Player {
     cross = 'Kreuz',
 }
 
+export interface User {
+    username: string;
+    id: string;
+    score: number;
+}
+
 export type Board = CellInfo[][];

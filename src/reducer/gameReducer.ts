@@ -1,8 +1,8 @@
-import {Action} from 'redux';
-import {RESET_GAME, SET_MARKER} from '../actions/boardActions';
-import {Board, Marker, Player} from '../types/types';
-import {clone} from 'ramda';
-import {getMarkerFor, getNextPlayer, isGameFinished, isUnmarked} from '../utils/gameUtils';
+import { Action } from 'redux';
+import { RESET_GAME, SET_MARKER } from '../actions/boardActions';
+import { Board, Marker, Player } from '../types/types';
+import { clone } from 'ramda';
+import { getMarkerFor, getNextPlayer, isGameFinished, isUnmarked } from '../utils/gameUtils';
 
 export const INITIAL_STATE: GameState = {
     gameFinished: false,
@@ -50,7 +50,7 @@ const updateGame = (currentState: GameState, clickedCell: GameAction): GameState
     return currentState;
 };
 
-const gameReducer = (state = INITIAL_STATE, action: GameAction) => {
+export default (state = INITIAL_STATE, action: GameAction) => {
     const currentState = clone(state);
     switch (action.type) {
         case SET_MARKER:
@@ -65,5 +65,3 @@ const gameReducer = (state = INITIAL_STATE, action: GameAction) => {
             return state;
     }
 };
-
-export default gameReducer;

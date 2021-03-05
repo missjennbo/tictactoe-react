@@ -1,0 +1,15 @@
+.modal-container {
+    display: flex;
+    flex-direction: column;
+    margin: 10% auto;
+    width: 50%;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.header-text {
+    font-size: 22px;
+    margin: 20px;
+    align-self: center;
+}
