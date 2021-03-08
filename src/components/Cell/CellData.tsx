@@ -1,16 +1,16 @@
 import styles from './CellView.module.scss';
-import heartImage from '../../images/heart.png';
-import crossImage from '../../images/cross.png';
+import heartImage from '../../images/heart.svg';
+import crossImage from '../../images/cross.svg';
 
 export const heartCell = (
     <div className={styles['image-border']}>
-        <img className={styles['image']} src={heartImage} alt="heartImage" />
+        <img className={styles['image']} src={heartImage} alt="https://www.freepik.com" />
     </div>
 );
 
 export const crossCell = (
     <div className={styles['image-border']}>
-        <img className={styles['image']} src={crossImage} alt="crossImage" />
+        <img className={styles['image']} src={crossImage} alt="https://www.freepik.com" />
     </div>
 );
 
