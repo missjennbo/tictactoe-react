@@ -22,7 +22,7 @@ const ScoreListView = (props: {isVisible: boolean; user: User[]; onClose: () => 
         descend(prop('score'))
     ]);
 
-    let content = <><p className={styles['header-text']}>Gewonnen!</p>
+    const content = <><p className={styles['header-text']}>Gewonnen!</p>
         <Table columns={columns} data={sortByScore(props.user)}/>
         <div style={{alignSelf: 'center'}}>
             <Button text={'Close'} onClickHandler={props.onClose}/>

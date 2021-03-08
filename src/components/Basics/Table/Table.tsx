@@ -1,4 +1,4 @@
-import {useTable, useSortBy} from 'react-table';
+import {useTable} from 'react-table';
 
 export const Table = ({columns, data}): JSX.Element => {
     const tableInstance = useTable({columns, data, initialState: {
@@ -14,7 +14,7 @@ export const Table = ({columns, data}): JSX.Element => {
 
     return (
         // apply the table props
-        <table style={{width: 300, margin: 50, alignSelf: 'center'}} {...getTableProps()}>
+        <table style={{width: '100%', margin: 50, padding: 10, alignSelf: 'center'}} {...getTableProps()}>
             <thead>
                 {
                     // Loop over the header rows

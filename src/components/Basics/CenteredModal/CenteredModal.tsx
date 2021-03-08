@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../ScoreList/ScoreListView.module.scss';
+import styles from './CenteredModal.module.scss';
 import Modal from 'react-modal';
 
 Modal.setAppElement('body');

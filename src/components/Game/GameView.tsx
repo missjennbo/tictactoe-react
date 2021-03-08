@@ -14,7 +14,7 @@ const GameView = (): JSX.Element => {
     const gameFinished = useSelector((state) => state.game.gameFinished);
     const user = useSelector((state) => state.user.userData);
 
-    useEffect(() => dispatch({type: LOAD_USER}), [gameFinished]);
+    useEffect(() => dispatch({type: LOAD_USER}), [dispatch, gameFinished]);
 
     const resetGame = () => dispatch({type: RESET_GAME});
 

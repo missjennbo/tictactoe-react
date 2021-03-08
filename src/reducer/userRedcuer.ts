@@ -14,7 +14,7 @@ interface UserAction extends Action {
     userData: User[];
 }
 
-export default (state = INITIAL_STATE, action: UserAction) => {
+const userRedcuer =  (state = INITIAL_STATE, action: UserAction) => {
     switch (action.type) {
         case SAVE_USER:
             return {
@@ -24,3 +24,5 @@ export default (state = INITIAL_STATE, action: UserAction) => {
             return state;
     }
 };
+
+export default userRedcuer;
