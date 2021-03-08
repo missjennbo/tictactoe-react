@@ -1,24 +1,28 @@
 import {User} from '../types/types';
-import {Action} from 'redux';
-import {SAVE_USER} from '../actions/userActions';
+import {SAVE_USER, SET_CURRENT_USERNAME} from '../actions/userActions';
+import {UserAction} from '../actions/actionCreators';
 
 const INITIAL_STATE: UserState = {
-    userData: [],
+    userList: [],
+    username: null,
 };
 
 interface UserState {
-    userData: User[];
+    userList: User[];
+    username: string;
 }
 
-interface UserAction extends Action {
-    userData: User[];
-}
-
-const userRedcuer =  (state = INITIAL_STATE, action: UserAction) => {
+const userRedcuer = (state = INITIAL_STATE, action: UserAction) => {
     switch (action.type) {
         case SAVE_USER:
             return {
-                userData: action.userData,
+                ...state,
+                userList: action.userList,
+            };
+        case SET_CURRENT_USERNAME:
+            return {
+                ...state,
+                username: action.username,
             };
         default:
             return state;
