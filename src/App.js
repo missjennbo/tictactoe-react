@@ -2,20 +2,18 @@ import GameView from './components/Game/GameView';
 import {Provider} from 'react-redux';
 import {applyMiddleware, createStore} from 'redux';
 import logger from 'redux-logger';
-import {appReducer} from './reducer';
-import createSagaMiddleware from 'redux-saga';
-import * as sagas from './sagas';
+import {reducer} from './reducer';
+import {ApolloProvider} from "@apollo/client";
+import {apolloClient} from "./utils/apolloClient";
 
 const App = () => {
-    const sagaMiddleware = createSagaMiddleware();
-    const store = createStore(appReducer, applyMiddleware(sagaMiddleware, logger));
-    Object.keys(sagas).forEach((saga) => {
-        sagaMiddleware.run(sagas[saga]);
-    });
+    const store = createStore(reducer, applyMiddleware(logger));
     return (
-        <Provider store={store}>
-            <GameView />
-        </Provider>
+        <ApolloProvider client={apolloClient}>
+            <Provider store={store}>
+                <GameView />
+            </Provider>
+        </ApolloProvider>
     );
 };
 
