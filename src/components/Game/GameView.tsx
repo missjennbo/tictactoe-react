@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import styles from './GameView.module.scss';
 import {RESET_GAME} from '../../actions/boardActions';
@@ -11,8 +11,6 @@ const GameView = (): JSX.Element => {
     const boardData = useSelector((state) => state.game.boardData);
     const currentPlayer = useSelector((state) => state.game.currentPlayer);
     const gameFinished = useSelector((state) => state.game.gameFinished);
-
-    // useEffect(() => dispatch(loadUser()), [dispatch, gameFinished]);
 
     const resetGame = () => dispatch({type: RESET_GAME});
 

@@ -1,18 +1,25 @@
 import {UsernameInput} from './UsernameInput/UsernameInput';
 import ScoreListView from './ScoreList/ScoreListView';
-import React from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {RESET_GAME} from '../../actions/boardActions';
-import { useMutation, useQuery } from '@apollo/client';
-import { INCREASE_SCORE, USER_QUERY } from '../../utils/apolloClient';
-import { setCurrentUsername } from '../../actions/actionCreators';
+import React, {useEffect} from 'react';
+import {useSelector} from 'react-redux';
+import {useMutation, useQuery} from '@apollo/client';
+import {INCREASE_SCORE, USER_QUERY} from '../../utils/apolloClient';
 
 export const UserScore = (): JSX.Element => {
     const {loading, error, data} = useQuery(USER_QUERY);
-    const dispatch = useDispatch();
+    const [increaseScore] = useMutation(INCREASE_SCORE, {refetchQueries: [{query: USER_QUERY}]});
+    const gameFinished = useSelector((state) => state.game.gameFinished);
     const currentUsername = useSelector((state) => state.user.username);
-    const resetGame = () => dispatch({type: RESET_GAME});
     const user = data ? data.users : [];
 
-    return <div>{currentUsername ? <ScoreListView user={user} onClose={resetGame} /> : <UsernameInput />}</div>;
+    useEffect(() => {
+        if (gameFinished && currentUsername) {
+            increaseScore({variables: {username: currentUsername}})
+                .then(() => {})
+                .catch((error) => console.log(`Error increasing score for user ${currentUsername}: ${error}`));
+        }
+    }, [gameFinished, currentUsername, increaseScore]);
+
+    if(loading || error)return <div/>;
+    return <div>{currentUsername ? <ScoreListView user={user} /> : <UsernameInput />}</div>;
 };
