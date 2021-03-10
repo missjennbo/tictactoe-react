@@ -5,7 +5,7 @@ I used **React Hooks** from [react-redux](https://reactjs.org/docs/hooks-intro.h
  * `const boardData = useSelector(state => state.boardData);` to consume global state
  * `const [status, setStatus] = useState('gameStatus');` to introduce local state variable
 
-###Deployment
+### Deployment
 
 How to publish static app using **Github Pages**: 
 * Install github pages as dev dependency `npm install gh-pages --save-dev`
@@ -19,7 +19,14 @@ Introduction to [**Github Actions**](https://docs.github.com/en/free-pro-team@la
 
 [**Github action**](https://github.com/marketplace/actions/deploy-to-github-pages) from marketplace to set git configuration from current user  
 
-###Git Tags
+### Communication between frontend and backend 
+The TicTacToe app uses the [**Apollo Client**](https://www.apollographql.com/docs/react/) to manage local and remote data with GraphQL. 
+I used the react hooks **useQuery** and **useMutation** for react offered by the apollo library.
+
+* `const {loading, error, data} = useQuery(USER_QUERY);`
+* `const [increaseScore] = useMutation(INCREASE_SCORE, {refetchQueries: [{query: USER_QUERY}]});`
+
+### Git Tags
 How to add new tag using git CLI 
 * Create new local tag with `git tag -a v1.0 -m "some-message"`
 * Push new tag to remote repository with `git push --follow-tags`
