@@ -11,14 +11,11 @@ export const UsernameInput = (): JSX.Element => {
 
     const onSubmit = (values) => {
         dispatch(setCurrentUsername(values.username));
-    }
+    };
 
     const content = (
-        <form
-            className={styles['form-container']}
-            onSubmit={handleSubmit(onSubmit)}
-        >
-            Please type in your username:
+        <form className={styles['form-container']} onSubmit={handleSubmit(onSubmit)}>
+            <p>Please type in your username:</p>
             <input name="username" ref={register} defaultValue="" />
             <input type="submit" value="OK" />
         </form>

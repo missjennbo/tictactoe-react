@@ -9,7 +9,7 @@ interface UserState {
     username: string;
 }
 
-const userRedcuer = (state = INITIAL_STATE, action: UserAction) => {
+const userReducer = (state = INITIAL_STATE, action: UserAction) => {
     switch (action.type) {
         case SET_CURRENT_USERNAME:
             return {
@@ -21,4 +21,4 @@ const userRedcuer = (state = INITIAL_STATE, action: UserAction) => {
     }
 };
 
-export default userRedcuer;
+export default userReducer;

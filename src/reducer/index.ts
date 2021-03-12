@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import user from './userRedcuer';
+import user from './userReducer';
 import game from './gameReducer';
 
 export const reducer = combineReducers({
