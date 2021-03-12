@@ -36,15 +36,12 @@ const mocks = [
     },
 ];
 
+// https://www.apollographql.com/docs/react/development-testing/testing/#the-mockedprovider-component
 export const renderWithRedux = (ui, {store = undefined} = {}): RenderResult & {store: Store} => ({
     ...render(
         <MockedProvider mocks={mocks} addTypename={false}>
             <Provider store={store}>{ui}</Provider>
         </MockedProvider>
     ),
-    // adding `store` to the returned utilities to allow us
-    // to reference it in our tests (just try to avoid using
-    // this to test implementation details).
-    // https://testing-library.com/docs/example-react-redux
     store,
 });

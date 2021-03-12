@@ -26,6 +26,8 @@ I used the react hooks **useQuery** and **useMutation** for react offered by the
 * `const {loading, error, data} = useQuery(USER_QUERY);`
 * `const [increaseScore] = useMutation(INCREASE_SCORE, {refetchQueries: [{query: USER_QUERY}]});`
 
+The queries and mutations can be mocked using the [**MockProvider**](https://www.apollographql.com/docs/react/development-testing/testing/#the-mockedprovider-component).
+
 ### Git Tags
 How to add new tag using git CLI 
 * Create new local tag with `git tag -a v1.0 -m "some-message"`
