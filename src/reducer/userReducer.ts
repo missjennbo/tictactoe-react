@@ -5,7 +5,7 @@ const INITIAL_STATE: UserState = {
     username: null,
 };
 
-interface UserState {
+export interface UserState {
     username: string;
 }
 

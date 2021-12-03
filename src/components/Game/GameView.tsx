@@ -5,12 +5,13 @@ import {RESET_GAME} from '../../actions/boardActions';
 import BoardView from '../Board/BoardView';
 import Button from '../Basics/Button/Button';
 import {UserScore} from '../UserScore/UserScore';
+import { State } from '../../reducer';
 
 const GameView = (): JSX.Element => {
     const dispatch = useDispatch();
-    const boardData = useSelector((state) => state.game.boardData);
-    const currentPlayer = useSelector((state) => state.game.currentPlayer);
-    const gameFinished = useSelector((state) => state.game.gameFinished);
+    const boardData = useSelector((state: State) => state.game.boardData);
+    const currentPlayer = useSelector((state: State) => state.game.currentPlayer);
+    const gameFinished = useSelector((state: State) => state.game.gameFinished);
 
     const resetGame = () => dispatch({type: RESET_GAME});
 
