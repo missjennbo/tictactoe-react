@@ -1,0 +1,21 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/tictactoe
+permissions:
+  - object: /home/ubuntu
+    owner: ubuntu
+    group: ubuntu
+    type:
+      - directory
+      - file
+hooks:
+  BeforeInstall:
+    - location: src/scripts/cleanup.sh
+      timeout: 300
+      runas: ubuntu
+  AfterInstall:
+    - location: src/scripts/runapp.sh
+      timeout: 300
+      runas: ubuntu

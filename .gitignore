@@ -1,6 +1,8 @@
 
-/node_modules
-/build
+tictactoe-frontend/node_modules
+tictactoe-frontend/build
+
+tictactoe-backend/node_modules
+tictactoe-backend/build
+
 /.idea
-tictactoe-frontend/package-lock.json
-.eslintcache
