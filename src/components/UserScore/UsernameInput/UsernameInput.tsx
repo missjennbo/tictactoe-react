@@ -16,7 +16,7 @@ export const UsernameInput = (): JSX.Element => {
     const content = (
         <form className={styles['form-container']} onSubmit={handleSubmit(onSubmit)}>
             <p>Please type in your username:</p>
-            <input name="username" defaultValue="" />
+            <input name="username" {...register("username", {required: true})} defaultValue="" />
             <input type="submit" value="OK" />
         </form>
     );
