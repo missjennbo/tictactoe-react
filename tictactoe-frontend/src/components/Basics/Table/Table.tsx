@@ -1,14 +1,18 @@
 import {useTable} from 'react-table';
 
 export const Table = ({columns, data}): JSX.Element => {
-    const tableInstance = useTable({columns, data, initialState: {
+    const tableInstance = useTable({
+        columns,
+        data,
+        initialState: {
             defaultSorted: [
                 {
                     id: 'score',
-                    desc: true
-                }
-            ]
-        }});
+                    desc: true,
+                },
+            ],
+        },
+    });
 
     const {getTableProps, getTableBodyProps, headerGroups, rows, prepareRow} = tableInstance;
 

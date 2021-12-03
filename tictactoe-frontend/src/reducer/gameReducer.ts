@@ -1,8 +1,8 @@
-import { Action } from 'redux';
-import { RESET_GAME, SET_MARKER } from '../actions/boardActions';
-import { Board, Marker, Player } from '../types/types';
-import { clone } from 'ramda';
-import { getMarkerFor, getNextPlayer, isGameFinished, isUnmarked } from '../utils/gameUtils';
+import {Action} from 'redux';
+import {RESET_GAME, SET_MARKER} from '../actions/boardActions';
+import {Board, Marker, Player} from '../types/types';
+import {clone} from 'ramda';
+import {getMarkerFor, getNextPlayer, isGameFinished, isUnmarked} from '../utils/gameUtils';
 
 export const INITIAL_STATE: GameState = {
     gameFinished: false,

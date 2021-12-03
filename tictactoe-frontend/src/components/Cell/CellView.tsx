@@ -28,9 +28,7 @@ const CellView = (props: Props) => {
         return notFilledCell;
     };
 
-    return (
-        <div onClick={() => (cellIsUnmarked ? setMarker() : '')}>{getMarker(props.cellInfo.filledWith)}</div>
-    );
+    return <div onClick={() => (cellIsUnmarked ? setMarker() : '')}>{getMarker(props.cellInfo.filledWith)}</div>;
 };
 
 export default CellView;

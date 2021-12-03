@@ -5,7 +5,7 @@ import {RESET_GAME} from '../../actions/boardActions';
 import BoardView from '../Board/BoardView';
 import Button from '../Basics/Button/Button';
 import {UserScore} from '../UserScore/UserScore';
-import { State } from '../../reducer';
+import {State} from '../../reducer';
 
 const GameView = (): JSX.Element => {
     const dispatch = useDispatch();

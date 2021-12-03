@@ -4,7 +4,7 @@ import React, {useEffect} from 'react';
 import {useSelector} from 'react-redux';
 import {useMutation, useQuery} from '@apollo/client';
 import {INCREASE_SCORE, USER_QUERY} from '../../utils/apolloClient';
-import { State } from '../../reducer';
+import {State} from '../../reducer';
 
 export const UserScore = (): JSX.Element => {
     const {loading, error, data} = useQuery(USER_QUERY);
@@ -21,6 +21,6 @@ export const UserScore = (): JSX.Element => {
         }
     }, [gameFinished, currentUsername, increaseScore]);
 
-    if(loading || error)return <div/>;
+    if (loading || error) return <div />;
     return <div>{currentUsername ? <ScoreListView user={user} /> : <UsernameInput />}</div>;
 };
