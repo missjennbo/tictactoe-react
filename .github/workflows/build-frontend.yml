@@ -1,5 +1,10 @@
 name: Deploy Frontend
-on: [push]
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   deploy-frontend:
     runs-on: ubuntu-latest
@@ -9,20 +14,48 @@ jobs:
 
       - name: Setup node
         uses: actions/setup-node@v1
+        with:
+          node-version: '16'
 
       - name: Install dependencies
         run: npm install
+        working-directory: ./tictactoe-frontend
 
       - name: Run tests
         run: npm run test
-
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Setup node
-        uses: actions/setup-node@v1
+        working-directory: ./tictactoe-frontend
 
       - name: Install and build
+        run: npm run build
+        working-directory: ./tictactoe-frontend
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-region: ${{ secrets.AWS_REGION }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Install pulumi
+        run: npm install
+        working-directory: ./deployment
+
+      - name: Create stack
         run: |
-          npm install
-          npm run build
+          pulumi up -s dev -y
+          echo "BUCKET_NAME=$(pulumi stack -s dev output bucketName)" >> $GITHUB_ENV
+        working-directory: ./deployment
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+      - name: Empty S3 bucket
+        run: aws s3 rm s3://${{ env.BUCKET_NAME }} --recursive
+
+      - name: Upload files
+        uses: shallwefootball/s3-upload-action@master
+        with:
+          aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+          aws_bucket: ${{ env.BUCKET_NAME }}
+          source_dir: './tictactoe-frontend/build'
+          destination_dir: ''

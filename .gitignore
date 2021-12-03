@@ -1,8 +1,14 @@
 
+/.idea
+
+#frontend
 tictactoe-frontend/node_modules
 tictactoe-frontend/build
 
+#backend
 tictactoe-backend/node_modules
 tictactoe-backend/build
 
-/.idea
+#deployment
+deployment/bin/
+deployment/node_modules/
