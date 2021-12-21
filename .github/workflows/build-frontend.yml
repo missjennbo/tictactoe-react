@@ -25,7 +25,7 @@ jobs:
         run: npm run test
         working-directory: ./tictactoe-frontend
 
-      - name: Install and build
+      - name: Build
         run: npm run build
         working-directory: ./tictactoe-frontend
 
@@ -47,15 +47,3 @@ jobs:
         working-directory: ./deployment
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
-
-      - name: Empty S3 bucket
-        run: aws s3 rm s3://${{ env.BUCKET_NAME }} --recursive
-
-      - name: Upload files
-        uses: shallwefootball/s3-upload-action@master
-        with:
-          aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
-          aws_bucket: ${{ env.BUCKET_NAME }}
-          source_dir: './tictactoe-frontend/build'
-          destination_dir: ''
