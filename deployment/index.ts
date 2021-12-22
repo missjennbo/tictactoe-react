@@ -10,7 +10,7 @@ const service = new awsx.ecs.FargateService("nginx", {
     taskDefinitionArgs: {
         containers: {
             nginx: {
-                image: awsx.ecs.Image.fromPath("nginx", "./app"),
+                image: awsx.ecs.Image.fromPath("nginx", "../tictactoe-frontend"),
                 memory: 512,
                 portMappings: [listener],
             },
