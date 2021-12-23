@@ -23,7 +23,10 @@
         "redux-logger": "^3.0.6",
         "redux-saga": "^1.1.3",
         "sass": "^1.44.0",
-        "typescript": "^4.5.2"
+        "typescript": "^4.5.2",
+        "@pulumi/pulumi": "^3.0.0",
+        "@pulumi/aws": "^4.0.0",
+        "@pulumi/awsx": "^0.30.0"
     },
     "scripts": {
         "start": "export SET NODE_OPTIONS=--openssl-legacy-provider && export PORT=80 && react-scripts start",
