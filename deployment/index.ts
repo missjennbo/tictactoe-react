@@ -43,7 +43,7 @@ const service = new awsx.ecs.FargateService("tictactoe-frontend", {
         containers: {
             nginx: {
                 image: awsx.ecs.Image.fromPath("tictactoe-frontend", "../tictactoe-frontend"),
-                memory: 512,
+                memory: 1024, // see https://create-react-app.dev/docs/troubleshooting/#:~:text=The%20build%20failed%20because%20the,or%20build%20the%20project%20locally.
                 portMappings: [tictoctoeTargetGroup],
             },
         },
