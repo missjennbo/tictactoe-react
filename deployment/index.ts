@@ -1,8 +1,40 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as awsx from "@pulumi/awsx";
 
+// const lbSecurityGroup = new awsx.ec2.SecurityGroup("lb-security-group", {
+//     ingress: [
+//         {
+//             cidrBlocks: ["0.0.0.0/0"],
+//             ipv6CidrBlocks: ["::/0"],
+//             fromPort: 80,
+//             toPort: 80,
+//             protocol: "tcp",
+//         },
+//     ],
+//     egress: [
+//         {
+//             cidrBlocks: ["0.0.0.0/0"],
+//             ipv6CidrBlocks: ["::/0"],
+//             fromPort: 80,
+//             toPort: 80,
+//             protocol: "tcp",
+//         },
+//     ]
+// });
+
+const appLoadbalancer = new awsx.lb.ApplicationLoadBalancer("tictactoe-loadbalancer");
+
+const tictoctoeTargetGroup = new awsx.lb.ApplicationTargetGroup(
+    "targetGroup",
+    {
+        protocol: "HTTP",
+        port: 80,
+        loadBalancer: appLoadbalancer
+    }
+);
+
 // Create a load balancer to listen for requests and route them to the container.
-const listener = new awsx.elasticloadbalancingv2.NetworkListener("tictactoe", { port: 80 });
+const listener = new awsx.elasticloadbalancingv2.ApplicationListener("tictactoe", { port: 80, loadBalancer: appLoadbalancer, targetGroup: tictoctoeTargetGroup });
 
 // Define the service, building and publishing our "./app/Dockerfile", and using the load balancer.
 const service = new awsx.ecs.FargateService("tictactoe-frontend", {
@@ -12,7 +44,7 @@ const service = new awsx.ecs.FargateService("tictactoe-frontend", {
             nginx: {
                 image: awsx.ecs.Image.fromPath("tictactoe-frontend", "../tictactoe-frontend"),
                 memory: 512,
-                portMappings: [listener],
+                portMappings: [tictoctoeTargetGroup],
             },
         },
     },
