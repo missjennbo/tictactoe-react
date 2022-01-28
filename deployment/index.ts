@@ -52,3 +52,4 @@ const service = new awsx.ecs.FargateService("tictactoe-frontend", {
 
 // Export the URL so we can easily access it.
 export const frontendURL = pulumi.interpolate `http://${listener.endpoint.hostname}/`;
+
