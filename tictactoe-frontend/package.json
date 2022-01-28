@@ -2,7 +2,7 @@
     "name": "tictactoe-react",
     "version": "0.1.0",
     "private": true,
-    "homepage": "http://missjennbo.github.io/tictactoe-react",
+    "homepage": "",
     "dependencies": {
         "@apollo/client": "^3.5.5",
         "@testing-library/jest-dom": "^5.15.1",
@@ -26,8 +26,7 @@
         "typescript": "^4.5.2"
     },
     "scripts": {
-        "start": "export SET NODE_OPTIONS=--openssl-legacy-provider && export PORT=80 && react-scripts start",
-        "start:local": "react-scripts start",
+        "start": "react-scripts start",
         "check": "npm-run-all pretty-quick-staged tsc lint test",
         "pretty-quick-staged": "pretty-quick --staged",
         "lint": "node_modules/.bin/eslint --fix .. --ext js,.jsx,.ts,.tsx",
