@@ -25,7 +25,7 @@ import * as awsx from "@pulumi/awsx";
 const appLoadbalancer = new awsx.lb.ApplicationLoadBalancer("tictactoe-loadbalancer");
 
 const tictoctoeFrontendTargetGroup = new awsx.lb.ApplicationTargetGroup(
-    "targetGroup",
+    "tictoctoeFrontendTargetGroup",
     {
         protocol: "HTTP",
         port: 80,
@@ -34,7 +34,7 @@ const tictoctoeFrontendTargetGroup = new awsx.lb.ApplicationTargetGroup(
 );
 
 const tictoctoeBackendTargetGroup = new awsx.lb.ApplicationTargetGroup(
-    "targetGroup",
+    "tictoctoeBackendTargetGroup",
     {
         protocol: "HTTP",
         port: 80,
