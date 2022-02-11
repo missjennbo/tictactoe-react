@@ -1,7 +1,7 @@
 import {render, RenderResult} from '@testing-library/react';
 import {Store} from 'redux';
 import {Provider} from 'react-redux';
-import {INCREASE_SCORE, USER_QUERY} from './apolloClient';
+import {INCREASE_SCORE, USER_QUERY} from '../client/apolloClient';
 import {MockedProvider} from '@apollo/client/testing';
 import {User} from '../types/types';
 

@@ -4,7 +4,7 @@ import {applyMiddleware, createStore} from 'redux';
 import logger from 'redux-logger';
 import {reducer} from './reducer';
 import {ApolloProvider} from '@apollo/client';
-import {apolloClient} from './utils/apolloClient';
+import {apolloClient} from './client/apolloClient';
 
 const App = () => {
     const store = createStore(reducer, applyMiddleware(logger));

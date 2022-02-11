@@ -3,7 +3,7 @@ import ScoreListView from './ScoreList/ScoreListView';
 import React, {useEffect} from 'react';
 import {useSelector} from 'react-redux';
 import {useMutation, useQuery} from '@apollo/client';
-import {INCREASE_SCORE, USER_QUERY} from '../../utils/apolloClient';
+import {INCREASE_SCORE, USER_QUERY} from '../../client/apolloClient';
 import {State} from '../../reducer';
 
 export const UserScore = (): JSX.Element => {
