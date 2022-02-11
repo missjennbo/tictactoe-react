@@ -37,7 +37,7 @@ const tictoctoeBackendTargetGroup = new awsx.lb.ApplicationTargetGroup(
     "backendTargetGroup",
     {
         protocol: "HTTP",
-        port: 80,
+        port: 8080,
         loadBalancer: appLoadbalancer
     }
 );
